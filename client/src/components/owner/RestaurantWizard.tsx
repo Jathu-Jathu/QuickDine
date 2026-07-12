@@ -85,11 +85,7 @@ export default function RestaurantWizard({ setRestaurant }: RestaurantWizardProp
                 formData.append("image", imageFile);
             }
 
-            const res = await api.post("/owner/restaurant", formData, {
-                headers:{
-                    "Content-Type" : "multipart/form-data",
-                }
-            })
+            const res = await api.post("/owner/restaurant", formData)
             setRestaurant(res.data)
             
             toast.success("Restaurant profile submitted successfully! Awaiting Admin approval.");
